@@ -1,0 +1,22 @@
+MeteCord/
+├── client/
+│   ├── public/
+│   │   └── logo.svg          ← Türk Bayrağı
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ChatWindow.jsx
+│   │   │   ├── VoiceCallButton.jsx
+│   │   │   └── Sidebar.jsx
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   └── Login.jsx
+│   │   ├── App.jsx           ← Responsive yapı + tema
+│   │   └── index.jsx
+│   ├── tailwind.config.js    ← Kırmızı-Beyaz tema
+│   ├── package.json
+│   └── vite.config.js
+├── server/
+│   ├── index.js              ← Socket.io sunucusu
+│   ├── package.json
+│   └── README.md
+└── README_TR.md              ← Türkçe kurulum rehberi
