@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:4000'); // 🚀 Backend bağlantısı
 
 export default function RegisterForm({ onRegister }) {
   const [username, setUsername] = useState('');
@@ -10,24 +13,16 @@ export default function RegisterForm({ onRegister }) {
       alert("Lütfen kullanıcı adı ve şifre girin!");
       return;
     }
-    onRegister({ username, password });
+
+    // 🚀 Backend’e kullanıcıyı gönder
+    socket.emit('registerUser', { username, password });
+
+    // ✅ Backend’dan yanıt gelirse
+    socket.once('registrationSuccess', (response) => {
+      alert(response.message);
+      onRegister({ username }); // Ana bileşene kullanıcıyı bildir
+    });
   };
-  const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!username || !password) {
-    alert("Lütfen kullanıcı adı ve şifre girin!");
-    return;
-  }
-
-  // 🚀 Backend’e kullanıcıyı gönder
-  socket.emit('registerUser', { username, password });
-
-  // ✅ Backend’dan yanıt gelirse
-  socket.once('registrationSuccess', (response) => {
-    alert(response.message);
-    onRegister({ username }); // Ana bileşene kullanıcıyı bildir
-  });
-};
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
       <h2 className="text-2xl font-bold text-turkishRed mb-6 text-center">Kayıt Ol</h2>
