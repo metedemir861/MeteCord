@@ -22,7 +22,12 @@ io.on('connection', (socket) => {
     console.log('📩 Gelen mesaj:', data);
     socket.broadcast.emit('receiveMessage', data);
   });
-
+// 🆕 Yeni: Kullanıcı kayıt olayı
+socket.on('registerUser', (userData) => {
+  console.log('🆕 Yeni kullanıcı kayıt oldu:', userData);
+  // Daha sonra burada veritabanına kaydedeceğiz
+  socket.emit('registrationSuccess', { message: "Kayıt başarılı!", username: userData.username });
+});
   socket.on('disconnect', () => {
     console.log('❌ [Backend] Kullanıcı ayrıldı:', socket.id);
   });
