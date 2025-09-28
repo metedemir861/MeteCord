@@ -1,7 +1,7 @@
 # 🇹🇷 MeteCord — Yerli ve Milli Sohbet Platformu
 
 > Mobil ve PC'den ortak çalışan, sesli/yazılı sohbet platformu.  
-> Geliştirici: [Senin Adın]  
+> Geliştirici: [E.Mete Demir]  
 > AI Asistan: CordBot
 
 ---
