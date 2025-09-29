@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:4000'); // 🚀 Backend bağlantısı
+const socket = io('https://metecord.onrender.com'); // 🚀 Backend bağlantısı
 
 export default function RegisterForm({ onRegister }) {
   const [username, setUsername] = useState('');
