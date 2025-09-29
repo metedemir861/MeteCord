@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import RegisterForm from './RegisterForm'; // 🆕 Yeni bileşeni dahil ettik
 
-const socket = io('http://localhost:4000');
+const socket = io('https://metecord.onrender.com');
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null); // Kullanıcı kayıtlı mı?
